@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#05090c" />
+    <meta name="description" content="使用 Three.js 制作的雷电风格纵向卷轴射击游戏第一关" />
+    <title>雷霆突击 · 第一关</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game" aria-label="雷霆突击游戏画面"></canvas>
+
+      <header class="hud" id="hud" aria-live="polite">
+        <section class="hud-block score-block">
+          <span class="hud-label">SCORE</span>
+          <strong id="score">0000000</strong>
+          <small>HI <span id="high-score">0000000</span></small>
+        </section>
+
+        <section class="stage-block">
+          <div class="stage-line">
+            <span>STAGE 01</span>
+            <span id="stage-status">准备出击</span>
+          </div>
+          <div class="progress"><i id="progress-bar"></i></div>
+        </section>
+
+        <section class="hud-block resources">
+          <div class="weapon-row"><span class="hud-label">WEAPON</span><span id="weapon-mode" class="weapon-indicator">VULCAN · I</span></div>
+          <div><span class="hud-label">SHIPS</span><span id="lives" class="ship-icons">◆ ◆ ◆ ◆ ◆</span></div>
+          <div><span class="hud-label">BOMBS</span><span id="bombs" class="bomb-icons">● ● ●</span></div>
+        </section>
+      </header>
+
+      <section class="boss-ui" id="boss-ui" aria-label="Boss 生命值">
+        <div><span>HEAVY ASSAULT CARRIER</span><b>BOSS</b></div>
+        <div class="boss-bar"><i id="boss-bar"></i></div>
+      </section>
+
+      <section class="screen active" id="start-screen">
+        <div class="scanline"></div>
+        <div class="mission-card">
+          <div class="wing-mark" aria-hidden="true"><i></i><b>R</b><i></i></div>
+          <p class="kicker">THUNDER STRIKE FORCE</p>
+          <h1>雷霆<span>突击</span></h1>
+          <div class="stage-tag"><i></i> 第一关 · 海岸防线 <i></i></div>
+          <p class="briefing">敌军舰队突破外海警戒线。驾驶 XF-27 战机穿越峡谷，摧毁重型空中母舰。</p>
+          <button class="primary-btn" id="start-btn" type="button"><span>开始任务</span><small>ENTER</small></button>
+          <div class="controls-guide">
+            <span><kbd>WASD</kbd><b>移动</b></span>
+            <span><kbd>AUTO</kbd><b>自动开火</b></span>
+            <span><kbd>X / K</kbd><b>炸弹</b></span>
+            <span><kbd>P</kbd><b>暂停</b></span>
+          </div>
+        </div>
+        <div class="corner top-left"></div><div class="corner top-right"></div>
+        <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+      </section>
+
+      <section class="screen result-screen" id="pause-screen">
+        <div class="result-card compact">
+          <p class="kicker">MISSION SUSPENDED</p>
+          <h2>任务暂停</h2>
+          <p>按 P 或点击按钮继续</p>
+          <button class="primary-btn" id="resume-btn" type="button"><span>继续任务</span><small>P</small></button>
+        </div>
+      </section>
+
+      <section class="screen result-screen" id="result-screen">
+        <div class="result-card">
+          <p class="kicker" id="result-kicker">MISSION COMPLETE</p>
+          <h2 id="result-title">第一关完成</h2>
+          <p id="result-message">海岸防线已经夺回。</p>
+          <div class="result-stats">
+            <span><small>SCORE</small><b id="result-score">0</b></span>
+            <span><small>DESTROYED</small><b id="result-kills">0</b></span>
+            <span><small>GRADE</small><b id="result-grade">A</b></span>
+          </div>
+          <button class="primary-btn" id="restart-btn" type="button"><span>重新挑战</span><small>ENTER</small></button>
+        </div>
+      </section>
+
+      <div class="toast" id="toast">WEAPON POWER UP</div>
+      <div class="wave-title" id="wave-title"><small>STAGE 01</small><b>海岸防线</b></div>
+      <div class="damage-flash" id="damage-flash"></div>
+
+      <div class="mobile-controls" aria-label="触屏控制">
+        <div class="stick-zone" id="stick-zone"><i id="stick-knob"></i></div>
+        <button id="mobile-fire" type="button">FIRE</button>
+        <button id="mobile-bomb" type="button">BOMB</button>
+      </div>
+
+      <footer class="footer-hint"><span>RUSH MODE · MAX THRUST</span><span>P · PAUSE</span></footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
