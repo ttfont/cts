@@ -1,6 +1,7 @@
 # 雷霆突击 · 第一关
 
 一款使用 Three.js 制作的 3D 纵向卷轴飞行射击游戏。驾驶 XF-27 战机穿越晴空湿地与海岸防线，拾取特殊武器，突破敌机编队并击败重型空中母舰 Boss。
+<img width="1481" height="792" alt="雷霆突击" src="https://github.com/user-attachments/assets/c9e6cc2d-a5fd-4219-8e58-9c2fb56be4c9" />
 
 ## 游戏特色
 
